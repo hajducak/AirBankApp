@@ -27,20 +27,22 @@ class TransactionsFlowController {
     func start() {
         let transactionsStoryboard = StoryboardScene.Transactions.initialScene.instantiate()
         transactionsStoryboard.flowDelegate = self
+        transactionsStoryboard.viewModel = TransactionViewModel(dependencies: dependencies)
         navigationController.viewControllers = [transactionsStoryboard]
         navigationController.navigationBar.isHidden = false
         
-        UIApplication.shared.statusBarView?.backgroundColor = UIColor.lightGray
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor.darkGray
     }
     
 }
 
 extension TransactionsFlowController: TransactionsFlowDelegate {
-    func showDetailOfTransaction() {
+    func showDetailOfTransaction(currentTransaction: TransactionDetail, transaction: Transaction) {
         let transactionDetailStoryboard = StoryboardScene.TransactionDetail.initialScene.instantiate()
         transactionDetailStoryboard.flowDelegate = self
+        transactionDetailStoryboard.currentTransaction = currentTransaction
+        transactionDetailStoryboard.transaction = transaction
         navigationController.show(transactionDetailStoryboard, sender: nil)
-        
     }
 }
 

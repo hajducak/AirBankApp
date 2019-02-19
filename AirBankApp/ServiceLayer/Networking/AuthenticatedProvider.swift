@@ -10,7 +10,6 @@ import Foundation
 import Moya
 import Alamofire
 import RxSwift
-import AWSCognitoIdentityProvider
 
 // Custom Moya provider
 // Idea taken from: https://github.com/Moya/Moya/blob/master/docs/Examples/ComposingProvider.md
@@ -29,41 +28,9 @@ final class AuthenticatedProvider<MultiTarget> where MultiTarget: Moya.TargetTyp
             if parameters.count > 0 {
                 defaultEndpoint = defaultEndpoint.replacing(task: .requestParameters(parameters: parameters, encoding: URLEncoding.default))
             }
-            
-            // add service headers
-            defaultEndpoint = defaultEndpoint.adding(newHTTPHeaderFields: ["Client-Type": "ios"])
-            defaultEndpoint = defaultEndpoint.adding(newHTTPHeaderFields: ["Client-App": "\(Bundle.main.bundleIdentifier!)[\(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String)]"])
-            defaultEndpoint = defaultEndpoint.adding(newHTTPHeaderFields: ["Client-API": "\(NetworkingConstants.apiVersion)"])
-            defaultEndpoint = defaultEndpoint.adding(newHTTPHeaderFields: ["Client-OS": UIDevice.current.systemVersion])
-            defaultEndpoint = defaultEndpoint.adding(newHTTPHeaderFields: ["Client-HW": UIDevice.current.identifierForVendor!.uuidString])
-            
             return defaultEndpoint
         }
-        
-        let requestClosure = { (endpoint: Endpoint, done: @escaping MoyaProvider.RequestResultClosure) in
-            do {
-                var request = try endpoint.urlRequest()
-                
-                // retrieve user session and sign request with access token if available
-                let userPool = AWSCognitoIdentityUserPool(forKey: NetworkingConstants.cognitoUserPoolsSignInProviderKey)
-                userPool.currentUser()?.getSession().continueWith(block: { (task) -> Void in
-                    if let accessToken = task.result?.idToken?.tokenString {
-                        request.addValue(accessToken, forHTTPHeaderField: "Authorization")
-                        done(.success(request))
-                    } else if let error = task.error {
-                        print("Auth failed -> \(error)")
-                        print(request.hashValue)
-                        done(.success(request))
-                    } else {
-                        done(.success(request))
-                    }
-                })
-                
-            } catch let error as NSError {
-                print(error)
-                return
-            }
-        }
+
         
         // configure manager
         let configuration = URLSessionConfiguration.default
@@ -84,7 +51,7 @@ final class AuthenticatedProvider<MultiTarget> where MultiTarget: Moya.TargetTyp
         }))
         #endif
         
-        self.provider = MoyaProvider<MultiTarget>(endpointClosure: endpointClosure, requestClosure: requestClosure, manager: manager, plugins: plugins)
+        self.provider = MoyaProvider<MultiTarget>(endpointClosure: endpointClosure, manager: manager, plugins: plugins)
     }
     
     func request(_ target: MultiTarget) -> Single<Moya.Response> {
@@ -100,4 +67,3 @@ final class AuthenticatedProvider<MultiTarget> where MultiTarget: Moya.TargetTyp
     }
     
 }
-

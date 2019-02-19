@@ -16,7 +16,7 @@ class AppFlowController {
     
     init(window: UIWindow) {
         self.window = window
-        dependencies = AppDependency()
+        dependencies = AppDependency(transactionsService: TransactionsService())
     }
     
     func start() {

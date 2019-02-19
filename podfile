@@ -18,9 +18,6 @@ def shared_pods
     pod 'SwiftGen'
 # Pods for UI elements
     pod 'Whisper'
-# Pods for AWS
-    pod 'AWSCore'
-    pod 'AWSCognitoIdentityProvider'
 
 end
 

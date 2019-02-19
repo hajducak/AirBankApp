@@ -12,7 +12,7 @@ struct NetworkingConstants {
     
     static let iso8601DefaultFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
     
-    static let apiVersion = 1
-    
-    static let cognitoUserPoolsSignInProviderKey = "UserPool"
+    static let mockServerBaseUrl = "http://private-anon-cf244c2c08-airbank.apiary-mock.com"
+    static let productionbaseURL = "Https://demo0569565.mockable.io"
+    static let proxyBaseUrl = "http://private-anon-cf244c2c08-airbank.apiary-proxy.com"
 }

@@ -32,7 +32,11 @@ class ServiceError: Error, Codable {
     
     init(statusCode: Int = 0, message: String = "Unknown error") {
         self.statusCode = statusCode
-        self.message = message
+        if statusCode == 404 {
+            self.message = "Mock not found!"
+        } else {
+            self.message = message
+        }
     }
 }
 

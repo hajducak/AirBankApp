@@ -52,6 +52,9 @@ class TransactionDetailViewController: BaseViewController {
         }
     }
     
+    var currentTransaction: TransactionDetail?
+    var transaction: Transaction?
+    
     var flowDelegate: TransactionDetailFlowDelegate?
 
     override func viewDidLoad() {
@@ -62,18 +65,29 @@ class TransactionDetailViewController: BaseViewController {
     override func setupViewAppearance() {
         super.setupViewAppearance()
         
+        navigationController?.navigationBar.tintColor = UIColor.white;
         
+        if let currentTransactionDetail = self.currentTransaction , let currentTransaction = self.transaction {
+            amountLabel.text = "\(currentTransaction.amountInAccountCurrency)"
+            typeOfTraLabel.text = TypeOfTransaction.init(rawValue: currentTransaction.direction)?.getName()
+            accuntNumberLabel.text = currentTransactionDetail.accountNumber
+            accountNameLabel.text = currentTransactionDetail.accountName
+            bankCodeLabel.text = currentTransactionDetail.bankCode
+            incomingOrOutcomingImageView.image = TypeOfTransaction.init(rawValue: currentTransaction.direction)?.getImage()
+        }
         // TEST CODE //
-        amountLabel.text = "100 Kč"
-        typeOfTraLabel.text = "incoing"
-        accuntNumberLabel.text = "111"
-        accountNameLabel.text = "BU"
-        bankCodeLabel.text = "3030"
-        incomingOrOutcomingImageView.image = UIImage(named: "incoming")
+//        amountLabel.text = "100 Kč"
+//        typeOfTraLabel.text = "incoing"
+//        accuntNumberLabel.text = "111"
+//        accountNameLabel.text = "BU"
+//        bankCodeLabel.text = "3030"
+//        incomingOrOutcomingImageView.image = UIImage(named: "incoming")
         // TEST CODE //
         
         let attributedStirngLabel = UILabel()
-        let attributedStirngText = NSMutableAttributedString(string: "Detail", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .medium), NSAttributedString.Key.foregroundColor : UIColor.darkGray])
+        let attributedStirngText = NSMutableAttributedString(string: "Detail", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor.white])
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.darkGray
         
         attributedStirngLabel.attributedText = attributedStirngText
         self.navigationItem.titleView = attributedStirngLabel
