@@ -1,0 +1,52 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
+
+# Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+use_frameworks!
+
+def shared_pods
+
+# Pods for FRP
+    pod 'RxSwift'
+    pod 'RxCocoa'
+# Pods for networking + data serialization
+    pod 'Moya/RxSwift'
+    pod 'AlamofireImage'
+    pod 'RealmSwift'
+    pod 'RxRealm'
+# Pods for localization
+    pod 'SwiftGen'
+# Pods for UI elements
+    pod 'Whisper'
+# Pods for AWS
+    pod 'AWSCore'
+    pod 'AWSCognitoIdentityProvider'
+
+end
+
+workspace 'AirBankApp'
+
+target 'AirBankApp' do
+    shared_pods
+end
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+
+            # Ignore documentation warnings
+            config.build_settings['CLANG_WARN_DOCUMENTATION_COMMENTS'] = 'NO'
+
+            # Update the Swift version if necessary
+            config.build_settings['SWIFT_VERSION'] = '4.0'
+
+            # Turn on Whole Module Optimization
+            if config.name == 'Release'
+                config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
+            else
+                config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
+            end
+        end
+    end
+end
