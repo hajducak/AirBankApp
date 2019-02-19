@@ -4,7 +4,15 @@
 - **API Doc:**  [AirBank](https://airbank.docs.apiary.io)
 
 ## CocoaPods
-- jednotlivé pody su špecifikováne v Podfile.lock a nainštalujú sa príkazom `pod install`
+- jednotlivé pody su špecifikováne v podfile/Podfile.lock nainštalujú sa príkazom `pod install`
+- comitujeme len podfile nie adresar Pods
 
 ## Service Layer
-- TODO
+
+- **MOYA Dic:** [MOYA](https://github.com/Moya/Moya)
+- **Codable Doc:** [Codable](https://developer.apple.com/documentation/swift/codable)
+- **Encoding and Decoding Custom Types:** [](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
+
+### **Alert Handler** 
+- **Whisper Doc:** [Whisper](https://github.com/hyperoslo/Whisper)
+
