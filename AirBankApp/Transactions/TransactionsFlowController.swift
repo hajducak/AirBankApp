@@ -28,6 +28,7 @@ class TransactionsFlowController {
         let transactionsStoryboard = StoryboardScene.Transactions.initialScene.instantiate()
         transactionsStoryboard.flowDelegate = self
         transactionsStoryboard.viewModel = TransactionViewModel(dependencies: dependencies)
+        transactionsStoryboard.curretnTypeToFilter = TypeOfTransaction.init(rawValue: "ALL")
         navigationController.viewControllers = [transactionsStoryboard]
         navigationController.navigationBar.isHidden = false
         

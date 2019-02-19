@@ -13,6 +13,7 @@ import RxCocoa
 enum TypeOfTransaction: String {
     case incoming = "INCOMING"
     case outgoing = "OUTGOING"
+    case all = "ALL"
     
     func getImage() -> UIImage? {
         switch self {
@@ -20,15 +21,19 @@ enum TypeOfTransaction: String {
             return UIImage(named: "incoming")
         case .outgoing:
             return UIImage(named: "outcoming")
+        case .all:
+            return nil
         }
     }
     
     func getName() -> String {
          switch self {
             case .incoming:
-                return  "incoming"
+                return "incoming"
             case .outgoing:
-                return  "outcoming"
+                return "outgoig"
+            case .all:
+                return "all"
         }
     }
 }
@@ -39,19 +44,49 @@ protocol TransactionsFlowDelegate {
 
 class TransactionsViewController: BaseViewController {
     
+    let transactionTypes = ["INCOMING","OUTGOING", "ALL"]
+    
+    var curretnTypeToFilter: TypeOfTransaction?
+    
+    private func filter() {
+        if let type = curretnTypeToFilter {
+            switch type {
+            case .all:
+                self.filteredTransactions = self.transactions
+            default:
+                var transactionToFiltred: [Transaction] = []
+                for transaction in transactions {
+                    if transaction.direction == curretnTypeToFilter?.rawValue {
+                        transactionToFiltred.append(transaction)
+                    }
+                }
+                self.filteredTransactions = transactionToFiltred
+            }
+        }
+        
+    }
+    
     fileprivate var idOfTransaction: Int?
+    
+    var filteredTransactions: [Transaction] = [] {
+        didSet {
+            transactionsTableView?.reloadData()
+            
+        }
+    }
     
     var transactions: [Transaction] = [] {
         didSet {
-            transactionsTableView.reloadData()
+            filteredTransactions = transactions
+            transactionsTableView?.reloadData()
         }
     }
+    
     var currentTransactionDetail: TransactionDetail? {
         didSet {
             if let currentTransactionDetail = self.currentTransactionDetail, let id = self.idOfTransaction  {
                 flowDelegate?.showDetailOfTransaction(currentTransaction: currentTransactionDetail, transaction: transactions[id - 1])
             }
-            
         }
     }
     
@@ -59,8 +94,12 @@ class TransactionsViewController: BaseViewController {
     
     var transactionDetail =  PublishSubject<Int>()
     
-    //var disposeBag = DisposeBag()
-    
+    @IBOutlet weak var transactionPickerView: PickerViewTextField! {
+        didSet {
+            transactionPickerView.text = curretnTypeToFilter?.getName()
+            transactionPickerView.updateDelegate = self
+        }
+    }
     @IBOutlet weak var transactionsTableView: UITableView! {
         didSet {
             let cellNib = UINib(nibName: TransactionCell.nameOfClass, bundle: nil)
@@ -91,6 +130,10 @@ class TransactionsViewController: BaseViewController {
         
         transactionsTableView.delegate = self
         transactionsTableView.dataSource = self
+        
+        transactionPickerView.pickerView.dataSource = self
+        transactionPickerView.pickerView.delegate = self
+        
     }
     
     override func setupViewModel() {
@@ -130,13 +173,13 @@ class TransactionsViewController: BaseViewController {
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactions.count
+        return filteredTransactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = transactionsTableView.dequeueReusableCell(withIdentifier: TransactionCell.nameOfClass, for: indexPath) as! TransactionCell
         
-        let transaction = self.transactions[indexPath.row]
+        let transaction = self.filteredTransactions[indexPath.row]
         if let typeOfTransaction = TypeOfTransaction.init(rawValue: transaction.direction), let image = typeOfTransaction.getImage() {
             cell.incomingOrOutcomingTransactionImageView.image = image
             cell.typeOfTransactionLabel.text = typeOfTransaction.getName()
@@ -150,13 +193,41 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.idOfTransaction = transactions[indexPath.row].id
+        self.idOfTransaction = filteredTransactions[indexPath.row].id
         if let id = self.idOfTransaction {
             transactionDetail.onNext(id)
         }
         transactionsTableView.deselectRow(at: indexPath, animated: true)
     }
+
+}
+
+
+extension TransactionsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return transactionTypes.count
+    }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return TypeOfTransaction.init(rawValue: self.transactionTypes[row])?.getName()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.curretnTypeToFilter = TypeOfTransaction.init(rawValue: self.transactionTypes[row])
+        transactionPickerView.text = curretnTypeToFilter?.getName()
+    }
     
 }
+
+extension TransactionsViewController: UpdateSettingsDelegate {
+    func didTouchDone() {
+        filter()
+    }
+}
+
+

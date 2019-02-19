@@ -52,6 +52,9 @@
 		522CA230221C4F4000E33F29 /* NetworkingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CA22F221C4F4000E33F29 /* NetworkingUtilities.swift */; };
 		522CA232221C4F7500E33F29 /* TransactionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CA231221C4F7500E33F29 /* TransactionService.swift */; };
 		522CA234221C51E200E33F29 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CA233221C51E200E33F29 /* TransactionViewModel.swift */; };
+		522CA257221CA23E00E33F29 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CA248221CA23E00E33F29 /* DesignableTextField.swift */; };
+		522CA258221CA23E00E33F29 /* PickerViewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CA249221CA23E00E33F29 /* PickerViewTextField.swift */; };
+		522CA25B221CAB1E00E33F29 /* Sequence+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522CA25A221CAB1E00E33F29 /* Sequence+Extensions.swift */; };
 		52C0499D221C0968001CD63C /* AppFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0499C221C0968001CD63C /* AppFlowController.swift */; };
 		52C0499F221C0A94001CD63C /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C0499E221C0A94001CD63C /* TransactionsViewController.swift */; };
 		52C049A1221C0AB7001CD63C /* Transactions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C049A0221C0AB7001CD63C /* Transactions.storyboard */; };
@@ -148,27 +151,6 @@
 			remoteGlobalIDString = AEF48675B554DBAC8D201ED522F48807;
 			remoteInfo = Whisper;
 		};
-		52C04A02221C1BC9001CD63C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52C049AB221C1362001CD63C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 29203A9E26A100D83A0160C0C8C91F0E;
-			remoteInfo = AWSCognitoIdentityProvider;
-		};
-		52C04A04221C1BC9001CD63C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52C049AB221C1362001CD63C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 94830645A23B888B3D8DBADB212B6280;
-			remoteInfo = AWSCognitoIdentityProviderASF;
-		};
-		52C04A06221C1BC9001CD63C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 52C049AB221C1362001CD63C /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BD5678EE8341AA4AA02BBAAA10ECC;
-			remoteInfo = AWSCore;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +203,9 @@
 		522CA22F221C4F4000E33F29 /* NetworkingUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingUtilities.swift; sourceTree = "<group>"; };
 		522CA231221C4F7500E33F29 /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		522CA233221C51E200E33F29 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		522CA248221CA23E00E33F29 /* DesignableTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
+		522CA249221CA23E00E33F29 /* PickerViewTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewTextField.swift; sourceTree = "<group>"; };
+		522CA25A221CAB1E00E33F29 /* Sequence+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extensions.swift"; sourceTree = "<group>"; };
 		52C0499C221C0968001CD63C /* AppFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowController.swift; sourceTree = "<group>"; };
 		52C0499E221C0A94001CD63C /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		52C049A0221C0AB7001CD63C /* Transactions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transactions.storyboard; sourceTree = "<group>"; };
@@ -424,6 +409,7 @@
 		520B3395221BFF7C001B4D11 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				522CA247221CA23E00E33F29 /* UITextField */,
 				520B33C4221C01A4001B4D11 /* CustomNavBar */,
 				520B33B1221C01A4001B4D11 /* CustomTabBar */,
 				520B33BA221C01A4001B4D11 /* UIView */,
@@ -463,6 +449,7 @@
 				520B33A9221C00B5001B4D11 /* Integer+Extension.swift */,
 				52C049F1221C1BC8001CD63C /* Realm+Extensions.swift */,
 				52C04A08221C1C11001CD63C /* Object+Extensions.swift */,
+				522CA25A221CAB1E00E33F29 /* Sequence+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -554,6 +541,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		522CA247221CA23E00E33F29 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				522CA248221CA23E00E33F29 /* DesignableTextField.swift */,
+				522CA249221CA23E00E33F29 /* PickerViewTextField.swift */,
+			);
+			path = UITextField;
+			sourceTree = "<group>";
+		};
 		52C049A2221C0B94001CD63C /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,9 +563,6 @@
 			children = (
 				52C049BE221C1362001CD63C /* Alamofire.framework */,
 				52C049C0221C1362001CD63C /* AlamofireImage.framework */,
-				52C04A03221C1BC9001CD63C /* AWSCognitoIdentityProvider.framework */,
-				52C04A05221C1BC9001CD63C /* AWSCognitoIdentityProviderASF.framework */,
-				52C04A07221C1BC9001CD63C /* AWSCore.framework */,
 				52C049C4221C1362001CD63C /* Moya.framework */,
 				52C049C8221C1362001CD63C /* Pods_AirBankApp.framework */,
 				52C049CA221C1362001CD63C /* Realm.framework */,
@@ -747,27 +740,6 @@
 			remoteRef = 52C049D7221C1362001CD63C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		52C04A03221C1BC9001CD63C /* AWSCognitoIdentityProvider.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AWSCognitoIdentityProvider.framework;
-			remoteRef = 52C04A02221C1BC9001CD63C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		52C04A05221C1BC9001CD63C /* AWSCognitoIdentityProviderASF.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AWSCognitoIdentityProviderASF.framework;
-			remoteRef = 52C04A04221C1BC9001CD63C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		52C04A07221C1BC9001CD63C /* AWSCore.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = AWSCore.framework;
-			remoteRef = 52C04A06221C1BC9001CD63C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -803,9 +775,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-AirBankApp/Pods-AirBankApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -821,9 +790,6 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -899,6 +865,7 @@
 				520B3368221BF617001B4D11 /* AppDelegate.swift in Sources */,
 				520B33A4221C0055001B4D11 /* String+Extensions.swift in Sources */,
 				520B3392221BFF47001B4D11 /* ServiceError.swift in Sources */,
+				522CA25B221CAB1E00E33F29 /* Sequence+Extensions.swift in Sources */,
 				520B33D6221C01A4001B4D11 /* ShadowView.swift in Sources */,
 				52C0499D221C0968001CD63C /* AppFlowController.swift in Sources */,
 				520B33DC221C01A4001B4D11 /* CustomNavBar.swift in Sources */,
@@ -907,6 +874,7 @@
 				52C049F2221C1BC8001CD63C /* Realm+Extensions.swift in Sources */,
 				520B3386221BFD94001B4D11 /* NetworkingConstants.swift in Sources */,
 				520B33D5221C01A4001B4D11 /* DashedLineView.swift in Sources */,
+				522CA258221CA23E00E33F29 /* PickerViewTextField.swift in Sources */,
 				520B33CE221C01A4001B4D11 /* CustomTabBarButton.swift in Sources */,
 				522CA216221C4BA900E33F29 /* TransactionDetail.swift in Sources */,
 				520B33F3221C078A001B4D11 /* TransactionsFlowController.swift in Sources */,
@@ -914,6 +882,7 @@
 				520B33AC221C00EB001B4D11 /* ViewModelType.swift in Sources */,
 				520B3388221BFE14001B4D11 /* AlertHandler.swift in Sources */,
 				52EEFAC5221C493500BB305D /* Transaction.swift in Sources */,
+				522CA257221CA23E00E33F29 /* DesignableTextField.swift in Sources */,
 				520B33A0221C0012001B4D11 /* NSObject+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
