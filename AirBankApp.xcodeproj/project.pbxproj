@@ -10,7 +10,6 @@
 		520B3368221BF617001B4D11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B3367221BF617001B4D11 /* AppDelegate.swift */; };
 		520B336A221BF617001B4D11 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B3369221BF617001B4D11 /* MainTabBarController.swift */; };
 		520B336D221BF617001B4D11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B336B221BF617001B4D11 /* Main.storyboard */; };
-		520B336F221BF619001B4D11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 520B336E221BF619001B4D11 /* Assets.xcassets */; };
 		520B3372221BF619001B4D11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 520B3370221BF619001B4D11 /* LaunchScreen.storyboard */; };
 		520B337A221BFAF5001B4D11 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 520B3379221BFAF5001B4D11 /* README.md */; };
 		520B3386221BFD94001B4D11 /* NetworkingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520B3385221BFD94001B4D11 /* NetworkingConstants.swift */; };
@@ -56,6 +55,11 @@
 		52C049EE221C1928001CD63C /* AuthenticatedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049ED221C1928001CD63C /* AuthenticatedProvider.swift */; };
 		52C049F2221C1BC8001CD63C /* Realm+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C049F1221C1BC8001CD63C /* Realm+Extensions.swift */; };
 		52C04A09221C1C11001CD63C /* Object+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C04A08221C1C11001CD63C /* Object+Extensions.swift */; };
+		52C04A1D221C2AA3001CD63C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C04A1C221C2AA2001CD63C /* Assets.xcassets */; };
+		52C04A1F221C3345001CD63C /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C04A1E221C3345001CD63C /* TransactionCell.xib */; };
+		52C04A21221C3350001CD63C /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C04A20221C3350001CD63C /* TransactionCell.swift */; };
+		52EEFABF221C38CC00BB305D /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52EEFABE221C38CB00BB305D /* TransactionDetailViewController.swift */; };
+		52EEFAC1221C38D300BB305D /* TransactionDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52EEFAC0221C38D300BB305D /* TransactionDetail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,7 +170,6 @@
 		520B3367221BF617001B4D11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		520B3369221BF617001B4D11 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		520B336C221BF617001B4D11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		520B336E221BF619001B4D11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		520B3371221BF619001B4D11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		520B3373221BF619001B4D11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		520B3379221BFAF5001B4D11 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -212,6 +215,11 @@
 		52C049ED221C1928001CD63C /* AuthenticatedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedProvider.swift; sourceTree = "<group>"; };
 		52C049F1221C1BC8001CD63C /* Realm+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+Extensions.swift"; sourceTree = "<group>"; };
 		52C04A08221C1C11001CD63C /* Object+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+Extensions.swift"; sourceTree = "<group>"; };
+		52C04A1C221C2AA2001CD63C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52C04A1E221C3345001CD63C /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
+		52C04A20221C3350001CD63C /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		52EEFABE221C38CB00BB305D /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
+		52EEFAC0221C38D300BB305D /* TransactionDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TransactionDetail.storyboard; sourceTree = "<group>"; };
 		DC852589644637F2EDE7E967 /* Pods-AirBankApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AirBankApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AirBankApp/Pods-AirBankApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -268,6 +276,7 @@
 		520B3366221BF617001B4D11 /* AirBankApp */ = {
 			isa = PBXGroup;
 			children = (
+				52C04A1C221C2AA2001CD63C /* Assets.xcassets */,
 				520B337C221BFCD4001B4D11 /* ServiceLayer */,
 				520B3393221BFF5F001B4D11 /* Stack */,
 				520B33E9221C0279001B4D11 /* Main */,
@@ -286,7 +295,6 @@
 		520B337B221BFC7C001B4D11 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				520B336E221BF619001B4D11 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -501,6 +509,7 @@
 				520B33F0221C0414001B4D11 /* View */,
 				52C0499E221C0A94001CD63C /* TransactionsViewController.swift */,
 				52C049A0221C0AB7001CD63C /* Transactions.storyboard */,
+				52EEFAAC221C388E00BB305D /* TransactionDetail */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -508,6 +517,8 @@
 		520B33F0221C0414001B4D11 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				52C04A1E221C3345001CD63C /* TransactionCell.xib */,
+				52C04A20221C3350001CD63C /* TransactionCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -546,6 +557,31 @@
 				52C049D8221C1362001CD63C /* Whisper.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		52EEFAAC221C388E00BB305D /* TransactionDetail */ = {
+			isa = PBXGroup;
+			children = (
+				52EEFABD221C38A800BB305D /* Model */,
+				52EEFABC221C38A200BB305D /* View */,
+				52EEFABE221C38CB00BB305D /* TransactionDetailViewController.swift */,
+				52EEFAC0221C38D300BB305D /* TransactionDetail.storyboard */,
+			);
+			path = TransactionDetail;
+			sourceTree = "<group>";
+		};
+		52EEFABC221C38A200BB305D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		52EEFABD221C38A800BB305D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,14 +751,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52EEFAC1221C38D300BB305D /* TransactionDetail.storyboard in Resources */,
 				52C049A1221C0AB7001CD63C /* Transactions.storyboard in Resources */,
 				520B3372221BF619001B4D11 /* LaunchScreen.storyboard in Resources */,
-				520B336F221BF619001B4D11 /* Assets.xcassets in Resources */,
 				520B33D1221C01A4001B4D11 /* CustomTabBarButton.xib in Resources */,
 				520B337A221BFAF5001B4D11 /* README.md in Resources */,
+				52C04A1F221C3345001CD63C /* TransactionCell.xib in Resources */,
 				520B336D221BF617001B4D11 /* Main.storyboard in Resources */,
 				520B33CF221C01A4001B4D11 /* CustomTabBarView.xib in Resources */,
 				520B33DD221C01A4001B4D11 /* CustomNavBar.xib in Resources */,
+				52C04A1D221C2AA3001CD63C /* Assets.xcassets in Resources */,
 				520B33E7221C0265001B4D11 /* ActivityIndicatorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,6 +859,7 @@
 				520B33AE221C010E001B4D11 /* BaseViewController.swift in Sources */,
 				520B33D0221C01A4001B4D11 /* CustomTabBarView.swift in Sources */,
 				520B338E221BFF02001B4D11 /* CodableObject.swift in Sources */,
+				52EEFABF221C38CC00BB305D /* TransactionDetailViewController.swift in Sources */,
 				520B33A8221C0095001B4D11 /* UIView+Extensions.swift in Sources */,
 				52C049EE221C1928001CD63C /* AuthenticatedProvider.swift in Sources */,
 				520B33A6221C007B001B4D11 /* UIApplication+Extensions.swift in Sources */,
@@ -840,6 +879,7 @@
 				520B33D5221C01A4001B4D11 /* DashedLineView.swift in Sources */,
 				520B33CE221C01A4001B4D11 /* CustomTabBarButton.swift in Sources */,
 				520B33F3221C078A001B4D11 /* TransactionsFlowController.swift in Sources */,
+				52C04A21221C3350001CD63C /* TransactionCell.swift in Sources */,
 				520B33AC221C00EB001B4D11 /* ViewModelType.swift in Sources */,
 				520B3388221BFE14001B4D11 /* AlertHandler.swift in Sources */,
 				520B33A0221C0012001B4D11 /* NSObject+Extensions.swift in Sources */,

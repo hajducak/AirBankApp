@@ -8,7 +8,7 @@
 
 import UIKit
 protocol TransactionsFlowControllerDelegate: class {
-    
+
 }
 
 class TransactionsFlowController {
@@ -28,11 +28,23 @@ class TransactionsFlowController {
         let transactionsStoryboard = StoryboardScene.Transactions.initialScene.instantiate()
         transactionsStoryboard.flowDelegate = self
         navigationController.viewControllers = [transactionsStoryboard]
+        navigationController.navigationBar.isHidden = false
+        
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.lightGray
     }
     
 }
 
 extension TransactionsFlowController: TransactionsFlowDelegate {
+    func showDetailOfTransaction() {
+        let transactionDetailStoryboard = StoryboardScene.TransactionDetail.initialScene.instantiate()
+        transactionDetailStoryboard.flowDelegate = self
+        navigationController.show(transactionDetailStoryboard, sender: nil)
+        
+    }
+}
+
+
+extension TransactionsFlowController: TransactionDetailFlowDelegate {
     
 }

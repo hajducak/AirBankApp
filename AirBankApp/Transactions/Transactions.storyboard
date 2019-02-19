@@ -18,20 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transactions page in prgoress..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-4G-cco">
-                                <rect key="frame" x="65" y="333" width="245" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2N-6d-qK1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter future is in progress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-4G-cco">
+                                        <rect key="frame" x="90" y="9.5" width="195" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="EL8-Ci-zhn"/>
+                                    <constraint firstItem="QAJ-4G-cco" firstAttribute="centerY" secondItem="a2N-6d-qK1" secondAttribute="centerY" id="PcG-dC-DF2"/>
+                                    <constraint firstItem="QAJ-4G-cco" firstAttribute="centerX" secondItem="a2N-6d-qK1" secondAttribute="centerX" id="XlX-Eo-K8G"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L5H-bf-veH">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="QAJ-4G-cco" firstAttribute="centerX" secondItem="YLi-IS-4to" secondAttribute="centerX" id="qDn-mr-whE"/>
-                            <constraint firstItem="QAJ-4G-cco" firstAttribute="centerY" secondItem="YLi-IS-4to" secondAttribute="centerY" id="rAH-LQ-Bye"/>
+                            <constraint firstItem="YLi-IS-4to" firstAttribute="bottom" secondItem="L5H-bf-veH" secondAttribute="bottom" id="96E-1t-Ume"/>
+                            <constraint firstItem="L5H-bf-veH" firstAttribute="top" secondItem="a2N-6d-qK1" secondAttribute="bottom" id="D0U-YY-PqL"/>
+                            <constraint firstItem="YLi-IS-4to" firstAttribute="trailing" secondItem="a2N-6d-qK1" secondAttribute="trailing" id="F0S-Jm-cqL"/>
+                            <constraint firstItem="L5H-bf-veH" firstAttribute="leading" secondItem="YLi-IS-4to" secondAttribute="leading" id="Hbe-pJ-pzK"/>
+                            <constraint firstItem="a2N-6d-qK1" firstAttribute="top" secondItem="YLi-IS-4to" secondAttribute="top" id="M4X-12-gCa"/>
+                            <constraint firstItem="YLi-IS-4to" firstAttribute="trailing" secondItem="L5H-bf-veH" secondAttribute="trailing" id="QDb-N4-cfx"/>
+                            <constraint firstItem="a2N-6d-qK1" firstAttribute="leading" secondItem="YLi-IS-4to" secondAttribute="leading" id="T23-Lk-Qja"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YLi-IS-4to"/>
                     </view>
+                    <connections>
+                        <outlet property="transactionsTableView" destination="L5H-bf-veH" id="wMY-Ts-Bqy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhl-aQ-MG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
