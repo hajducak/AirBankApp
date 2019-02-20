@@ -31,7 +31,6 @@ class TransactionsFlowController {
         transactionsStoryboard.curretnTypeToFilter = TypeOfTransaction.init(rawValue: "ALL")
         navigationController.viewControllers = [transactionsStoryboard]
         navigationController.navigationBar.isHidden = false
-        
         UIApplication.shared.statusBarView?.backgroundColor = UIColor.darkGray
     }
     

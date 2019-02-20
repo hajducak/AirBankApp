@@ -96,7 +96,6 @@ class TransactionsViewController: BaseViewController {
     
     @IBOutlet weak var transactionPickerView: PickerViewTextField! {
         didSet {
-            transactionPickerView.text = curretnTypeToFilter?.getName()
             transactionPickerView.updateDelegate = self
         }
     }
@@ -107,6 +106,12 @@ class TransactionsViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var separatorView: UIView! {
+        didSet {
+            separatorView.backgroundColor = UIColor.lightGray
+            
+        }
+    }
     var flowDelegate: TransactionsFlowDelegate?
     
     override func viewDidLoad() {
@@ -120,7 +125,7 @@ class TransactionsViewController: BaseViewController {
     override func setupViewAppearance() {
         super.setupViewAppearance()
         
-        navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        navigationController?.navigationBar.barTintColor = UIColor.darkGray
         
         let attributedStirngLabel = UILabel()
         let attributedStirngText = NSMutableAttributedString(string: "Transactions", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20, weight: .regular), NSAttributedString.Key.foregroundColor : UIColor.white])
@@ -172,6 +177,10 @@ class TransactionsViewController: BaseViewController {
 
 extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredTransactions.count
     }
@@ -199,6 +208,14 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
         }
         transactionsTableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.curretnTypeToFilter?.getName()
+    }
 
 }
 
@@ -219,7 +236,6 @@ extension TransactionsViewController: UIPickerViewDelegate, UIPickerViewDataSour
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.curretnTypeToFilter = TypeOfTransaction.init(rawValue: self.transactionTypes[row])
-        transactionPickerView.text = curretnTypeToFilter?.getName()
     }
     
 }
