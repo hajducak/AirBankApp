@@ -68,7 +68,7 @@ class TransactionDetailViewController: BaseViewController {
         navigationController?.navigationBar.tintColor = UIColor.white;
         
         if let currentTransactionDetail = self.currentTransaction , let currentTransaction = self.transaction {
-            amountLabel.text = "\(currentTransaction.amountInAccountCurrency)"
+            amountLabel.text = "\(currentTransaction.amountInAccountCurrency) Kč"
             typeOfTraLabel.text = TypeOfTransaction.init(rawValue: currentTransaction.direction)?.getName()
             accuntNumberLabel.text = currentTransactionDetail.accountNumber
             accountNameLabel.text = currentTransactionDetail.accountName

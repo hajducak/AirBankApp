@@ -193,7 +193,7 @@ extension TransactionsViewController: UITableViewDelegate, UITableViewDataSource
             cell.incomingOrOutcomingTransactionImageView.image = image
             cell.typeOfTransactionLabel.text = typeOfTransaction.getName()
         }
-        cell.amountLabel.text = "\(transaction.amountInAccountCurrency)"
+        cell.amountLabel.text = "\(transaction.amountInAccountCurrency) Kč"
         return cell
     }
     
